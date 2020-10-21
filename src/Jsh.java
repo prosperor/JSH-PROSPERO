@@ -13,11 +13,11 @@ public final class Jsh {
     }
 
     public static void exibirPrompt() {
-
+        System.out.print("UsuarioTeste#UID:dir% ");
     }
 
     public static ComandoPrompt lerComando() {
-
+        return null;
     }
 
     public static void executarComando(ComandoPrompt comando) {
@@ -26,7 +26,7 @@ public final class Jsh {
     }
 
     public static int executarPrograma(ComandoPrompt comando) {
-
+        return 0;
     }
 
     public static void main(String... args) {
