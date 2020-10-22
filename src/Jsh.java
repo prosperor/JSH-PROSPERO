@@ -1,3 +1,4 @@
+import java.util.Optional;
 import java.util.Scanner;
 
 public final class Jsh {
@@ -40,6 +41,9 @@ public final class Jsh {
                 break;
             case "relogio":
                 out = ComandosInternos.exibirRelogio();
+                break;
+            case "la":
+                out = ComandosInternos.escreverListaArquivos(Optional.of(dir));
                 break;
         }
         if (out != 0)

@@ -1,5 +1,9 @@
+import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 public final class ComandosInternos {
 
@@ -11,7 +15,16 @@ public final class ComandosInternos {
         return 0;
     }
 
-    public static int escreverListaArquivos(String nomeDir) {
+    public static int escreverListaArquivos(Optional<String> nomeDir) {
+        File dir = new File((String)nomeDir.get());
+        List<File> listArq = Arrays.asList(dir.listFiles());
+        StringBuilder out = new StringBuilder();
+
+        for(int x = 0; x < listArq.size(); ++x) {
+            out.append(((File)listArq.get(x)).getName() + '\n');
+        }
+
+        System.out.println(out.toString());
         return 0;
     }
 
