@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JSH-PROSPERO:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JSH_PROSPERO_jar</output-path>
+    <root id="archive" name="JSH-PROSPERO.jar">
+      <element id="module-output" name="JSH-PROSPERO" />
+    </root>
+  </artifact>
+</component>

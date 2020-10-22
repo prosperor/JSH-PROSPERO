@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public final class Jsh {
 
     private static String dir;
@@ -25,7 +27,9 @@ public final class Jsh {
     }
 
     public static ComandoPrompt lerComando() {
-        return null;
+        Scanner scn = new Scanner(System.in);
+        String comando = scn.nextLine();
+        return new ComandoPrompt(comando);
     }
 
     public static void executarComando(ComandoPrompt comando) {
