@@ -54,7 +54,10 @@ public final class Jsh {
             case "mdt":
                 out = ComandosInternos.mudarDiretorioTrabalho((String)comando.getArgumentos().get(1));
                 break;
+            default:
+                out = executarPrograma(comando);
         }
+
         if (out != 0)
             System.out.println("Ocorreu um erro");
     }
