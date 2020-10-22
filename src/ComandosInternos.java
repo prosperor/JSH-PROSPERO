@@ -49,7 +49,36 @@ public final class ComandosInternos {
     }
 
     public static int mudarDiretorioTrabalho(String newPath) {
-        return 0;
+        String barra = System.getProperty("file.separator");
+        String pathAtual = System.getProperty("user.dir");
+        int points = 0;
+        File dir;
+        if (newPath.startsWith("..")) {
+            int x;
+            for(x = 0; x < newPath.length() && newPath.charAt(x) == '.'; ++x) {
+                ++points;
+            }
+
+            for(x = 0; x < points - 1; ++x) {
+                pathAtual = pathAtual.substring(0, pathAtual.lastIndexOf(barra));
+            }
+
+            dir = new File(pathAtual);
+        } else if (pathAtual.contains(newPath)) {
+            dir = new File(pathAtual.substring(0, pathAtual.indexOf(newPath)) + newPath);
+            pathAtual = dir.getPath();
+        } else {
+            pathAtual = pathAtual + barra + newPath;
+            dir = new File(pathAtual);
+        }
+
+        if (dir.exists() && dir.isDirectory()) {
+            System.setProperty("user.dir", pathAtual);
+            return 0;
+        } else {
+            System.out.println("Caminho inválido");
+            return 1;
+        }
     }
 
     private ComandosInternos() {

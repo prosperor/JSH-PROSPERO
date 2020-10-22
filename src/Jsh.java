@@ -51,6 +51,9 @@ public final class Jsh {
             case "ad":
                 out = ComandosInternos.apagarDiretorio((String)comando.getArgumentos().get(1), dir);
                 break;
+            case "mdt":
+                out = ComandosInternos.mudarDiretorioTrabalho((String)comando.getArgumentos().get(1));
+                break;
         }
         if (out != 0)
             System.out.println("Ocorreu um erro");
