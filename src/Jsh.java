@@ -45,6 +45,9 @@ public final class Jsh {
             case "la":
                 out = ComandosInternos.escreverListaArquivos(Optional.of(dir));
                 break;
+            case "cd":
+                out = ComandosInternos.criarNovoDiretorio(comando.getArgumentos().get(1), dir);
+                break;
         }
         if (out != 0)
             System.out.println("Ocorreu um erro");

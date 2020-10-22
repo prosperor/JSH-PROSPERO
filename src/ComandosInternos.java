@@ -29,7 +29,11 @@ public final class ComandosInternos {
     }
 
     public static int criarNovoDiretorio(String nomeDir, String path) {
-        return 0;
+        File dir = new File(path + System.getProperty("file.separator") + nomeDir);
+        dir.mkdir();
+        String out = dir.exists() && dir.isDirectory() ? "Criado" : "Erro";
+        System.out.println(out);
+        return dir.exists() && dir.isDirectory() ? 0 : 1;
     }
 
     public static int apagarDiretorio(String nomeDir, String dirPath) {
