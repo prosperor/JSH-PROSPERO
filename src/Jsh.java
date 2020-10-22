@@ -85,8 +85,9 @@ public final class Jsh {
             if (comandA.canExecute()) {
                 try {
                     Process real = construtor.command("." + barra + comando.getNome()).start();
+                    saida = real.waitFor();
                     System.out.println((new BufferedReader(new InputStreamReader(real.getInputStream()))).readLine());
-                } catch (IOException var8) {
+                } catch (InterruptedException | IOException var8) {
                     System.out.println(var8.getMessage());
                 }
             } else {
