@@ -1,4 +1,7 @@
+
+
 public final class ComandosInternos {
+
     public static int exibirRelogio() {
         return 0;
     }

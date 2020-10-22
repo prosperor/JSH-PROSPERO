@@ -33,8 +33,14 @@ public final class Jsh {
     }
 
     public static void executarComando(ComandoPrompt comando) {
-
-
+        int out = 1;
+        switch (comando.getNome()){
+            case "encerrar":
+                System.exit(0);
+                break;
+        }
+        if (out != 0)
+            System.out.println("Ocorreu um erro");
     }
 
     public static int executarPrograma(ComandoPrompt comando) {
