@@ -38,6 +38,9 @@ public final class Jsh {
             case "encerrar":
                 System.exit(0);
                 break;
+            case "relogio":
+                out = ComandosInternos.exibirRelogio();
+                break;
         }
         if (out != 0)
             System.out.println("Ocorreu um erro");
