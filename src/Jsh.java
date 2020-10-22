@@ -83,7 +83,12 @@ public final class Jsh {
             ProcessBuilder construtor = (new ProcessBuilder(new String[0])).directory(dirA);
             File comandA = new File(dir + barra + comando.getNome());
             if (comandA.canExecute()) {
-                System.out.println("O Jshel pode executar o arquivo");
+                try {
+                    Process real = construtor.command("." + barra + comando.getNome()).start();
+                    System.out.println((new BufferedReader(new InputStreamReader(real.getInputStream()))).readLine());
+                } catch (IOException var8) {
+                    System.out.println(var8.getMessage());
+                }
             } else {
                 System.out.println("O Jshell não tem permissão para executar o arquivo");
             }
