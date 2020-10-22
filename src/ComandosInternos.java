@@ -37,7 +37,15 @@ public final class ComandosInternos {
     }
 
     public static int apagarDiretorio(String nomeDir, String dirPath) {
-        return 0;
+        File deleted = new File(dirPath + System.getProperty("file.separator") + nomeDir);
+        String var10000;
+        if (deleted.delete()) {
+            var10000 = "Sucesso";
+        } else {
+            var10000 = !deleted.isDirectory() ? "Não é um diretório" : "Não existe";
+        }
+
+        return !deleted.exists() ? 0 : 1;
     }
 
     public static int mudarDiretorioTrabalho(String newPath) {
