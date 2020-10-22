@@ -1,3 +1,7 @@
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -63,7 +67,18 @@ public final class Jsh {
     }
 
     public static int executarPrograma(ComandoPrompt comando) {
-        return 0;
+        int saida = 1;
+        File dirA = new File(dir);
+        List<File> listArq = Arrays.asList(Objects.requireNonNull(dirA.listFiles()));
+        boolean executar = false;
+
+        for(int x = 1; x < listArq.size() && !executar; ++x) {
+            executar = ((File)listArq.get(x)).getName().equals(comando.getNome());
+        }
+
+        System.out.println(executar);
+
+        return saida;
     }
 
     public static void main(String... args) {
