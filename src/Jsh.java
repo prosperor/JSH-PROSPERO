@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -76,7 +79,17 @@ public final class Jsh {
             executar = ((File)listArq.get(x)).getName().equals(comando.getNome());
         }
 
-        System.out.println(executar);
+        if (executar) {
+            ProcessBuilder construtor = (new ProcessBuilder(new String[0])).directory(dirA);
+            File comandA = new File(dir + barra + comando.getNome());
+            if (comandA.canExecute()) {
+                System.out.println("O Jshel pode executar o arquivo");
+            } else {
+                System.out.println("O Jshell não tem permissão para executar o arquivo");
+            }
+        } else {
+            System.out.println("Programa/comando não existe");
+        }
 
         return saida;
     }
